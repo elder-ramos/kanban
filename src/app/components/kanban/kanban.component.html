@@ -2,55 +2,15 @@
     <p class="navtext" style="color: white">Hellofy</p>
 </nav>
 
-<main class="board">
-    <div class="columns" cdkDropListGroup>
+<main class="board" cdkDropListGroup>
+    <div class="columns" *ngFor="let coluna of quadro.colunas">
         <div class="items"
         cdkDropList
-            #todoList="cdkDropList"
-                [cdkDropListData]="todo"
+                [cdkDropListData]="coluna.tasks"
                 (cdkDropListDropped)="drop($event)">
             <p class="column-title">To-do</p>
             <div class="task-container">
-                <div class="task" *ngFor="let item of todo" cdkDrag>
-                    <p>{{item}}</p>
-                </div>
-            </div>
-        </div>
-    
-        <div class="items"
-        cdkDropList
-            #wipList="cdkDropList"
-                [cdkDropListData]="wip"
-                (cdkDropListDropped)="drop($event)">
-            <p class="column-title">WIP</p>
-            <div class="task-container">
-                <div class="task" *ngFor="let item of wip" cdkDrag>
-                    <p>{{item}}</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="items"
-        cdkDropList
-            #testingList="cdkDropList"
-                [cdkDropListData]="testing"
-                (cdkDropListDropped)="drop($event)">
-            <p class="column-title">Testing</p>
-            <div class="task-container">
-                <div class="task" *ngFor="let item of testing" cdkDrag>
-                    <p>{{item}}</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="items"
-        cdkDropList
-            #doneList="cdkDropList"
-                [cdkDropListData]="done"
-                (cdkDropListDropped)="drop($event)">
-            <p class="column-title">Done</p>
-            <div class="task-container">
-                <div class="task" *ngFor="let item of done" cdkDrag>
+                <div class="task" *ngFor="let item of coluna.tasks" cdkDrag>
                     <p>{{item}}</p>
                 </div>
             </div>
