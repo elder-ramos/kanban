@@ -7,11 +7,13 @@
         <div class="items"
         cdkDropList
                 [cdkDropListData]="coluna.tasks"
-                (cdkDropListDropped)="drop($event)">
-            <p class="column-title">To-do</p>
+                (cdkDropListDropped)="drop($event)"
+                >
+            <p class="column-title">{{coluna.name}}</p>
             <div class="task-container">
                 <div class="task" *ngFor="let item of coluna.tasks" cdkDrag>
-                    <p>{{item}}</p>
+                    <p class="task-title">{{item.taskObj.nome}}</p>
+                    <p class="task-subtitle">{{item.taskObj.autoria}}</p>
                 </div>
             </div>
         </div>
