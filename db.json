@@ -1,0 +1,36 @@
+{
+  "quadro": {
+    "name": "Kanban",
+    "colunas": [
+      {
+        "name": "todo",
+        "tasks": [
+          { "name": "Do Kanban", "autor": "Elder", "descricao": "Escrever um Kanban baseado nos que foram enviados" },
+          { "name": "Learn Angular", "autor": "Kassio" },
+          { "name": "Learn PHP", "autor": "Weydson" }
+        ]
+      },
+      {
+        "name": "wip",
+        "tasks": [
+          { "name": "Do Kanban task", "autor": "Elder" },
+          { "name": "Home screen", "autor": "Kassio" },
+          { "name": "Forms", "autor": "Weydson" }
+        ]
+      },
+      {
+        "name": "testing",
+        "tasks": [
+          { "name": "Backend logic", "autor": "Weydson" },
+          { "name": "Angular theme", "autor": "Elder" }
+        ]
+      },
+      {
+        "name": "done",
+        "tasks": [
+          { "name": "Contratação", "autor": "@Todos" }
+        ]
+      }
+    ]
+  }
+}

@@ -1,17 +1,13 @@
 import { Component } from '@angular/core';
-import {NgFor} from '@angular/common';
-import { Coluna } from 'src/app/models/coluna.model';
+// Drag/Drop lib
+import { CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+// Local imports
 import { Quadro } from 'src/app/models/quadro.model';
-
-import {
-  CdkDragDrop,
-  moveItemInArray,
-  transferArrayItem,
-  CdkDrag,
-  CdkDropList,
-} from '@angular/cdk/drag-drop';
 import { Task } from 'src/app/models/task.model';
-
+import { ApiService } from 'src/app/services/api.service';
+// Dialog imports
+import { DialogItemsComponent } from '../dialog-items/dialog-items.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-kanban',
@@ -20,14 +16,25 @@ import { Task } from 'src/app/models/task.model';
 })
 export class KanbanComponent {
 
-  quadro: Quadro = new Quadro('Kanban', 
-    [new Coluna('todo', [new Task('Do Kanban', 'Elder'), new Task('Learn Angular', 'Kassio'), new Task('Learn PHP', 'Weydson')]),
-    new Coluna('wip', [new Task('Do Kanban task', 'Elder'), new Task('Home screen', 'Kassio'), new Task('Forms', 'Weydson')]),
-    new Coluna('testing', [new Task('Backend logic', 'Weydson'), new Task('Angular theme', 'Elder')]),
-    new Coluna('done', [new Task('Contratação', '@Todos')])
-  ]);
+  quadro: Quadro | undefined;
+
+  constructor(private apiService: ApiService, 
+    public dialog: MatDialog){}
+
+  ngOnInit() {
+    this.apiService.getAll().subscribe((data) => (this.quadro = data));
+  }
+
+  openDialog(name:string, author:string, descricao?: string): void {
+    this.dialog.open(DialogItemsComponent, {
+      minWidth: '300px',
+      data: {autor: author, name: name, descricao: descricao}
+    });
+  }
 
 
+
+  // Drag/Drop event
   drop(event: CdkDragDrop<Task[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);

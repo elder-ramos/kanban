@@ -1,0 +1,9 @@
+<div class="modal">
+    <p>Título</p>
+    <div class="content">
+        <p class="task-title">{{data.name}}</p>
+        <p class="task-subtitle">{{data.autor}}</p>
+        <p *ngIf="data.descricao">{{data.descricao}}</p>
+        <button (click)="dialogRef.close()">Close</button>
+    </div>    
+</div>
