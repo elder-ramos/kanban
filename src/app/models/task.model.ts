@@ -1,14 +1,3 @@
 export class Task {
-    taskObj: { nome: string, autor: string, descricao?: string };
-    name: string = '';
-    autor: string = '';
-    descricao: string = '';
-    
-    constructor(name: string, autor: string, descricao?: string) {
-      this.taskObj = {
-        nome: name,
-        autor: autor,
-        descricao: descricao
-      };
-    }
-  }
+  constructor(public id: number, public taskName: string, public autor: string, public descricao: string, public colunaId: number){}
+}

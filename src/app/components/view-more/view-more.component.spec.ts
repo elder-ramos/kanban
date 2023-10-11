@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DialogItemsComponent } from './dialog-items.component';
+import { ViewMoreComponent } from './view-more.component';
 
 describe('DialogItemsComponent', () => {
-  let component: DialogItemsComponent;
-  let fixture: ComponentFixture<DialogItemsComponent>;
+  let component: ViewMoreComponent;
+  let fixture: ComponentFixture<ViewMoreComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [DialogItemsComponent]
+      declarations: [ViewMoreComponent]
     });
-    fixture = TestBed.createComponent(DialogItemsComponent);
+    fixture = TestBed.createComponent(ViewMoreComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

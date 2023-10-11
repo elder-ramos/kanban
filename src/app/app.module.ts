@@ -5,16 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { KanbanComponent } from './components/kanban/kanban.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { DialogItemsComponent } from './components/dialog-items/dialog-items.component';
+import { ViewMoreComponent } from './components/view-more/view-more.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import {MatDialogModule} from '@angular/material/dialog'
+import { MatIconModule } from '@angular/material/icon';
+import { EditCardComponent } from './components/edit-card/edit-card.component';
+import { CreateCardComponent } from './components/create-card/create-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     KanbanComponent,
-    DialogItemsComponent,
+    ViewMoreComponent,
+    EditCardComponent,
+    CreateCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,7 +27,8 @@ import {MatDialogModule} from '@angular/material/dialog'
     DragDropModule,
     HttpClientModule,
     RouterModule,
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule
   ],
   exports: [RouterModule],
   providers: [],

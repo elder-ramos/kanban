@@ -2,17 +2,35 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Quadro } from '../models/quadro.model';
+import { Task } from '../models/task.model';
+import { Coluna } from '../models/coluna.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'http://localhost:3000/quadro'
+  private apiUrl = 'http://localhost:3000/quadros'
 
   constructor(private http: HttpClient) { }
 
+  get(url: string){
+    return this.http.get<any>(url)
+  }
+
   getAll(): Observable<Quadro>{
     return this.http.get<Quadro>(this.apiUrl);
+  }
+
+  createColuna(coluna: Coluna[]){
+    return this.http.post<Coluna[]>(this.apiUrl, (coluna))
+  }
+
+  createTask(task:Task[]){
+    return this.http.post<Task[]>(this.apiUrl, (task))
+  }
+
+  teste(){
+    console.log(this.http.get(this.apiUrl, {}))
   }
 
 }

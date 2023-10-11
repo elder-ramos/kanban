@@ -1,5 +1,3 @@
-import { Coluna } from './coluna.model';
-
 export class Quadro {
-    constructor(public name: string, public colunas: Coluna[]) {}
+    constructor(public id:number, public name: string) {}
 }
