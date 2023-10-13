@@ -1,42 +1,140 @@
 {
-    "quadros": [
-      {
-        "id": 1,
-        "name": "Kanban"
-      }
-    ],
-    "colunas": [
-      {
-        "id": 1,
-        "name": "todo",
-        "quadroId": 1
-      },
-      {
-        "id": 2,
-        "name": "wip",
-        "quadroId": 1
-      },
-      {
-        "id": 3,
-        "name": "testing",
-        "quadroId": 1
-      },
-      {
-        "id": 4,
-        "name": "done",
-        "quadroId": 1
-      }
-    ],
-    "tasks": [
-      { "id": 1, "taskName": "Do Kanban", "autor": "Elder", "descricao": "Escrever um Kanban baseado nos que foram enviados", "colunaId": 1 },
-      { "id": 2, "taskName": "Learn Angular", "autor": "Kassio", "descricao": "", "colunaId": 1 },
-      { "id": 3, "taskName": "Learn PHP", "autor": "Weydson", "descricao": "", "colunaId": 1 },
-      { "id": 4, "taskName": "Do Kanban task", "autor": "Elder", "descricao": "", "colunaId": 2 },
-      { "id": 5, "taskName": "Home screen", "autor": "Kassio", "descricao": "", "colunaId": 2 },
-      { "id": 6, "taskName": "Forms", "autor": "Weydson", "descricao": "", "colunaId": 2 },
-      { "id": 7, "taskName": "Backend logic", "autor": "Weydson", "descricao": "", "colunaId": 3 },
-      { "id": 8, "taskName": "Angular theme", "autor": "Elder", "descricao": "", "colunaId": 3 },
-      { "id": 9, "taskName": "Contratação", "autor": "@Todos", "descricao": "", "colunaId": 4 }
-    ]
-  }
-  
+  "quadros": [
+    {
+      "id": 1,
+      "name": "Kanban"
+    },
+    {
+      "taskName": "Fix bugs",
+      "autor": "Elder",
+      "descricao": "Resolver bugs do projeto Kanban (Angular)",
+      "colunaId": 1,
+      "id": 2
+    },
+    {
+      "taskName": "Fix bugs",
+      "autor": "Elder",
+      "descricao": "Resolver bugs do projeto Kanban (Angular)",
+      "colunaId": 1,
+      "id": 3
+    }
+  ],
+  "colunas": [
+    {
+      "id": 1,
+      "name": "todo",
+      "quadroId": 1
+    },
+    {
+      "id": 2,
+      "name": "wip",
+      "quadroId": 1
+    },
+    {
+      "id": 3,
+      "name": "testing",
+      "quadroId": 1
+    },
+    {
+      "id": 4,
+      "name": "done",
+      "quadroId": 1
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "taskName": "Do Kanban",
+      "autor": "Elder",
+      "descricao": "Escrever um Kanban baseado nos que foram enviados",
+      "colunaId": 1
+    },
+    {
+      "id": 2,
+      "taskName": "Learn Angular",
+      "autor": "Kassio",
+      "descricao": "",
+      "colunaId": 1
+    },
+    {
+      "id": 3,
+      "taskName": "Learn PHP",
+      "autor": "Weydson",
+      "descricao": "",
+      "colunaId": 1
+    },
+    {
+      "id": 4,
+      "taskName": "Do Kanban task",
+      "autor": "Elder",
+      "descricao": "",
+      "colunaId": 2
+    },
+    {
+      "id": 5,
+      "taskName": "Home screen",
+      "autor": "Kassio",
+      "descricao": "",
+      "colunaId": 2
+    },
+    {
+      "id": 6,
+      "taskName": "Forms",
+      "autor": "Weydson",
+      "descricao": "",
+      "colunaId": 2
+    },
+    {
+      "id": 7,
+      "taskName": "Backend logic",
+      "autor": "Weydson",
+      "descricao": "",
+      "colunaId": 3
+    },
+    {
+      "id": 8,
+      "taskName": "Angular theme",
+      "autor": "Elder",
+      "descricao": "",
+      "colunaId": 3
+    },
+    {
+      "id": 9,
+      "taskName": "Contratação",
+      "autor": "@Todos",
+      "descricao": "",
+      "colunaId": 4
+    },
+    {
+      "id": 10
+    },
+    {
+      "taskName": "Fix bugs",
+      "autor": "Elder",
+      "descricao": "Resolver bugs no Angular",
+      "colunaId": 1,
+      "id": 11
+    },
+    {
+      "taskName": "Ok thats 100% right",
+      "autor": "100%",
+      "descricao": "10000%",
+      "colunaId": 1,
+      "id": 12
+    },
+    {
+      "taskName": "Teste coluna 2",
+      "autor": "Coluna 2",
+      "descricao": "Daaaaaaaaaaale",
+      "colunaId": 2,
+      "id": 13
+    },
+    {
+      "taskName": "Testing column",
+      "autor": "Thats right",
+      "descricao": "100%",
+      "colunaId": 3,
+      "id": 14
+    }
+  ]
+}

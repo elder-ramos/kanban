@@ -9,7 +9,7 @@ import { Coluna } from '../models/coluna.model';
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'http://localhost:3000/quadros'
+  private apiUrl = 'http://localhost:3000'
 
   constructor(private http: HttpClient) { }
 
@@ -18,18 +18,19 @@ export class ApiService {
   }
 
   getAll(): Observable<Quadro>{
-    return this.http.get<Quadro>(this.apiUrl);
+    return this.http.get<Quadro>(`${this.apiUrl}/quadros`);
   }
 
-  createColuna(coluna: Coluna[]){
-    return this.http.post<Coluna[]>(this.apiUrl, (coluna))
+  createColuna(coluna: Coluna){
+    console.log(coluna)
+    // return this.http.post<Coluna[]>(`${this.apiUrl}/colunas`, coluna)
   }
 
-  createTask(task:Task[]){
-    return this.http.post<Task[]>(this.apiUrl, (task))
+  createTask(task:Task){
+    return this.http.post(`${this.apiUrl}/tasks`, task)
   }
 
-  teste(){
+  updateTasks(){
     console.log(this.http.get(this.apiUrl, {}))
   }
 

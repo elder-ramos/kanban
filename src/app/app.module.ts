@@ -12,6 +12,9 @@ import {MatDialogModule} from '@angular/material/dialog'
 import { MatIconModule } from '@angular/material/icon';
 import { EditCardComponent } from './components/edit-card/edit-card.component';
 import { CreateCardComponent } from './components/create-card/create-card.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input'
 
 @NgModule({
   declarations: [
@@ -28,7 +31,11 @@ import { CreateCardComponent } from './components/create-card/create-card.compon
     HttpClientModule,
     RouterModule,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   exports: [RouterModule],
   providers: [],

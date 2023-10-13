@@ -58,8 +58,12 @@ export class KanbanComponent {
     });
   }
 
-  openDialogAdd(){
-    this.dialog.open(CreateCardComponent);
+  // Apenas abrir o dialog e preencher o form do modal
+  openDialogAdd(colunaId: number){
+    this.dialog.open(CreateCardComponent,{
+      data: {columnId: colunaId}
+    })
+    console.log('openDialogAdd columnId = ', colunaId)
   }
 
   // Drag/Drop event
