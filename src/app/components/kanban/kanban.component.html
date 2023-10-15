@@ -3,7 +3,7 @@
     <p class="navtext" style="color: white">Hellofy</p>
 </nav>
 <div id="btnCriarTask">
-    <button>Criar nova tarefa</button>
+    <button>Criar nova coluna</button>
 </div>
 <main class="board" cdkDropListGroup>
     <ng-container *ngIf="quadro">
@@ -24,7 +24,7 @@
                             <button (click)="openDialogMore(item.taskName, item.autor, item.descricao)">
                                 <mat-icon aria-label="View more button" fontIcon="more"></mat-icon>
                             </button>
-                            <button (click)="openDialogEdit(item.id!, item.taskName, item.autor, item.descricao)">
+                            <button (click)="openDialogEdit(item.id!, item.taskName, item.autor, item.colunaId, item.descricao)">
                                 <mat-icon aria-label="Edit button" fontIcon="edit"></mat-icon>
                             </button>
                         </div>

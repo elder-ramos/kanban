@@ -22,8 +22,7 @@ export class ApiService {
   }
 
   createColuna(coluna: Coluna){
-    console.log(coluna)
-    // return this.http.post<Coluna[]>(`${this.apiUrl}/colunas`, coluna)
+    return this.http.post<Coluna>(`${this.apiUrl}/colunas`, coluna)
   }
 
   createTask(task:Task){

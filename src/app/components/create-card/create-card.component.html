@@ -1,6 +1,6 @@
 <div class="modal">
     <div class="content">
-        <form (ngSubmit)="createTask(addForm.value)" [formGroup]="addForm">
+        <form (ngSubmit)="sendValues(addForm.value)" [formGroup]="addForm">
             <div>
                 <label for="taskName">Nome da tarefa:</label>
                 <input type="text" formControlName="taskName" name="taskName" placeholder="Digite aqui...">

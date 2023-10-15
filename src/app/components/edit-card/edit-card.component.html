@@ -1,8 +1,23 @@
 <div class="modal">
     <div class="content">
-        <p class="task-title">{{data.name}}</p>
-        <p class="task-subtitle">{{data.autor}}</p>
-        <p *ngIf="data.descricao">{{data.descricao}}</p>
-        <button (click)="dialogRef.close()">Close</button>
+        <form (ngSubmit)="sendValues(editForm.value)" [formGroup]="editForm">
+            <div>
+                <label for="taskName">Nome da tarefa:</label>
+                <input type="text" formControlName="taskName" name="taskName" placeholder="Digite aqui...">
+                <span *ngIf="(editForm.get('taskName')?.touched && editForm.get('taskName')?.errors?.['minlength'])">Mínimo de 2 caracteres</span>
+            </div>
+            <div>
+                <label for="autor">Autor: </label>
+                <input type="text" formControlName="autor" name="autor" placeholder="De quem é essa tarefa?">
+            </div>
+            <div>
+                <label for="descricao">Descrição da tarefa: </label>
+                <input type="textarea" formControlName="descricao" name="descricao" placeholder="Descreva a tarefa...">
+            </div>
+            <div>
+                <button (click)="close()">Close</button>
+                <button type="submit" [disabled]="!editForm.valid">Enviar formulário</button>
+            </div>
+        </form>
     </div>    
 </div>

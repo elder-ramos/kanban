@@ -3,15 +3,12 @@ import { Component } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 // Local imports
 import { EditCardComponent } from '../edit-card/edit-card.component';
-import { Quadro } from 'src/app/models/quadro.model';
 import { Task } from 'src/app/models/task.model';
 import { ApiService } from 'src/app/services/api.service';
 // Dialog imports
 import { ViewMoreComponent } from '../view-more/view-more.component';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateCardComponent } from '../create-card/create-card.component';
-import { Coluna } from 'src/app/models/coluna.model';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -52,9 +49,13 @@ export class KanbanComponent {
     });
   }
 
-  openDialogEdit(id: number, name:string, author:string, descricao?: string){
+  openDialogEdit(id: number, name:string, author:string, colunaId: number, descricao?: string){
     this.dialog.open(EditCardComponent, {
-      data: {autor: author, name: name, descricao: descricao}
+      data: {id: id, 
+        autor: author,
+        taskName: name,
+        descricao: descricao,
+        colunaId: colunaId}
     });
   }
 
