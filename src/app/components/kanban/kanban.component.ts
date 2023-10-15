@@ -3,15 +3,12 @@ import { Component } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 // Local imports
 import { EditCardComponent } from '../edit-card/edit-card.component';
-import { Quadro } from 'src/app/models/quadro.model';
 import { Task } from 'src/app/models/task.model';
 import { ApiService } from 'src/app/services/api.service';
 // Dialog imports
 import { ViewMoreComponent } from '../view-more/view-more.component';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateCardComponent } from '../create-card/create-card.component';
-import { Coluna } from 'src/app/models/coluna.model';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -38,13 +35,6 @@ export class KanbanComponent {
     this.colunas = data;
   })};
 
-  // Buscar tasks
-  getTasks(id:number){
-    console.log('Foi')
-    this.apiService.get('https://localhost:3000/colunas/' + id + '/tasks')
-  }
-
-
   // Dialog Buttons
   openDialogMore(name:string, author:string, descricao?: string): void {
     this.dialog.open(ViewMoreComponent, {
@@ -58,26 +48,28 @@ export class KanbanComponent {
     });
   }
 
-  openDialogAdd(){
-    this.dialog.open(CreateCardComponent);
+  openDialogAdd(columnId: number){
+    console.log('Entrou');
+    this.dialog.open(CreateCardComponent,{
+      data: {columnId: columnId}
+    });
   }
 
   // Drag/Drop event
   drop(event: CdkDragDrop<Task[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-      console.log(event.container.data)
+      console.log(event.previousIndex)
+      console.log(event.currentIndex)
+      event.container.data.forEach((task) => (this.apiService.updateTaskColumn(task), console.log(`Nova coluna ${task.id}:`, task)));
     } else {
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,
         event.previousIndex,
-        event.currentIndex
+        event.currentIndex,
       );
-      console.log("Antigo container:", event.previousContainer.data);
-      console.log("Novo container:", event.container.data);
-      console.log("PreviousIndex: ", event.previousIndex);
-      console.log("NewIndex: ", event.currentIndex);
+      event.container.data.forEach((task) => (this.apiService.updateTaskColumn(task)));
     }
   }
 }

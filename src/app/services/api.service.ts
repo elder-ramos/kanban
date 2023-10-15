@@ -9,7 +9,9 @@ import { Coluna } from '../models/coluna.model';
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'http://localhost:3000/quadros'
+  private apiUrl = 'http://localhost:3000'
+  errorMessage: any;
+  dbState: any;
 
   constructor(private http: HttpClient) { }
 
@@ -18,19 +20,37 @@ export class ApiService {
   }
 
   getAll(): Observable<Quadro>{
-    return this.http.get<Quadro>(this.apiUrl);
+    return this.http.get<Quadro>(`${this.apiUrl}/quadros`);
   }
 
   createColuna(coluna: Coluna[]){
-    return this.http.post<Coluna[]>(this.apiUrl, (coluna))
+    return this.http.post<Coluna[]>(`${this.apiUrl}/colunas`, (coluna))
   }
 
-  createTask(task:Task[]){
-    return this.http.post<Task[]>(this.apiUrl, (task))
+  createTask(columnId: number, task:Task){
+    return this.http.post<Task>(`${this.apiUrl}/colunas/${columnId}`, (task))
   }
 
-  teste(){
-    console.log(this.http.get(this.apiUrl, {}))
-  }
-
-}
+  updateTaskColumn(task:Task){
+    this.http.get<Task[]>(`${this.apiUrl}/colunas/${task.colunaId}/tasks?id=${task.id}`).subscribe((data) => {
+      if(data[0] !== task){
+        console.log(data[0] != task)
+        console.log('Data APISERVICE: ', data[0]);
+        console.log('Task APISERVICE: ', task);
+        return this.http.put(`${this.apiUrl}/tasks/${task.id}`, task).subscribe(resultado => {
+          console.log('Alterado com sucesso', resultado)
+        }, erro =>{
+          switch(erro.status){
+            case 400:
+              console.log(erro.error.message);
+              break;
+            case 404:
+              console.log("Não localizado");
+              break;
+          }
+        })
+      }else{
+        console.log('Comparou e não mudou buceta nenhuma');
+        return 404;
+      }
+    })}}
