@@ -37,20 +37,19 @@ export class ApiService {
         console.log(data[0] != task)
         console.log('Data APISERVICE: ', data[0]);
         console.log('Task APISERVICE: ', task);
-        return this.http.put(`${this.apiUrl}/tasks/${task.id}`, task).subscribe(resultado => {
-          console.log('Alterado com sucesso', resultado)
-        }, erro =>{
-          switch(erro.status){
-            case 400:
-              console.log(erro.error.message);
-              break;
-            case 404:
-              console.log("Não localizado");
-              break;
-          }
-        })
+        return this.http.put(`${this.apiUrl}/tasks/${task.id}`, task).subscribe({
+            next(result){
+              console.log('Alterado com sucesso: ', result)
+            },
+            error(err){
+              console.error('Algo de errado aconteceu: ', err)
+            },
+            complete(){
+              console.log('Finalizado.')
+            }
+          })
       }else{
-        console.log('Comparou e não mudou buceta nenhuma');
+        console.log('Comparou e não mudou nada!');
         return 404;
       }
     })}}
