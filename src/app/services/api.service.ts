@@ -20,17 +20,23 @@ export class ApiService {
   }
 
   getAll(): Observable<Quadro>{
-    return this.http.get<Quadro>(`${this.apiUrl}/quadros`);
+    return this.http.get<Quadro>(`${this.apiUrl}/quadro/1/colunas?_embed=tasks`);
   }
 
+<<<<<<< Updated upstream
   createColuna(coluna: Coluna[]){
     return this.http.post<Coluna[]>(`${this.apiUrl}/colunas`, (coluna))
+=======
+  createColumn(coluna: Coluna){
+    return this.http.post<Coluna>(`${this.apiUrl}/colunas`, coluna)
+>>>>>>> Stashed changes
   }
 
   createTask(columnId: number, task:Task){
     return this.http.post<Task>(`${this.apiUrl}/colunas/${columnId}`, (task))
   }
 
+<<<<<<< Updated upstream
   updateTaskColumn(task:Task){
     this.http.get<Task[]>(`${this.apiUrl}/colunas/${task.colunaId}/tasks?id=${task.id}`).subscribe((data) => {
       if(data[0] !== task){
@@ -53,3 +59,17 @@ export class ApiService {
         return 404;
       }
     })}}
+=======
+  updateTasks(id: number, columnId: number){
+    const updatedColumn = {"colunaId": columnId}
+    this.http.patch(`${this.apiUrl}/tasks/${id}`, updatedColumn).subscribe({
+      next(res){
+        console.log("Resposta: ", res);
+      }, error(err){
+        console.error("Erro: ", err)
+      }
+    })
+  }
+
+}
+>>>>>>> Stashed changes

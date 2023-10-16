@@ -1,0 +1,15 @@
+<div class="modal">
+    <div class="content">
+        <form (ngSubmit)="sendValues(addColumn.value)" [formGroup]="addColumn">
+            <div>
+                <label for="name">Nome da coluna:</label>
+                <input type="text" formControlName="name" name="name" placeholder="Digite aqui...">
+                <span *ngIf="(addColumn.get('name')?.touched && addColumn.get('name')?.errors?.['minlength'])">Mínimo de 2 caracteres</span>
+            </div>
+            <div>
+                <button (click)="close()">Close</button>
+                <button type="submit" [disabled]="!addColumn.valid">Enviar formulário</button>
+            </div>
+        </form>
+    </div>    
+</div>

@@ -1,3 +1,3 @@
 export class Coluna {
-    constructor(public id: number, public name: string, quadroId: number) {}
+    constructor(public name: string, public quadroId: number, public id?: number) {}
 }

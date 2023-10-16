@@ -10,6 +10,7 @@ import { ViewMoreComponent } from '../view-more/view-more.component';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateCardComponent } from '../create-card/create-card.component';
 import { Observable } from 'rxjs';
+import { CreateColumnComponent } from '../create-column/create-column.component';
 
 @Component({
   selector: 'app-kanban',
@@ -42,7 +43,15 @@ export class KanbanComponent {
     });
   }
 
+<<<<<<< Updated upstream
   openDialogEdit(id: number, name:string, author:string, descricao?: string){
+=======
+  openDialogAddColumn(){
+    this.dialog.open(CreateColumnComponent)
+  }
+
+  openDialogEdit(id: number, name:string, author:string, colunaId: number, descricao?: string){
+>>>>>>> Stashed changes
     this.dialog.open(EditCardComponent, {
       data: {autor: author, name: name, descricao: descricao}
     });
@@ -69,7 +78,13 @@ export class KanbanComponent {
         event.previousIndex,
         event.currentIndex,
       );
+<<<<<<< Updated upstream
       event.container.data.forEach((task) => (this.apiService.updateTaskColumn(task)));
+=======
+      const columnId = Number(event.container.id[14]) + 1;
+      // Passando id da task e id da coluna (nova) para patch
+      this.apiService.updateTasks(event.container.data[event.currentIndex].id!, columnId)
+>>>>>>> Stashed changes
     }
   }
 }

@@ -25,6 +25,11 @@
       "id": 4,
       "name": "done",
       "quadroId": 1
+    },
+    {
+      "name": "Study",
+      "quadroId": 1,
+      "id": 5
     }
   ],
   "tasks": [
@@ -54,7 +59,7 @@
       "taskName": "Do Kanban task",
       "autor": "Elder",
       "descricao": "",
-      "colunaId": 2
+      "colunaId": 3
     },
     {
       "id": 5,
@@ -75,7 +80,7 @@
       "taskName": "Backend logic",
       "autor": "Weydson",
       "descricao": "",
-      "colunaId": 3
+      "colunaId": 11
     },
     {
       "id": 8,
@@ -103,7 +108,25 @@
       "autor": "Elder",
       "descricao": "Escrever um Kanban baseado nos que foram enviados",
       "colunaId": 1,
+<<<<<<< Updated upstream
       "id": 13
+=======
+      "id": 12
+    },
+    {
+      "taskName": "Teste coluna 2",
+      "autor": "Coluna 2",
+      "descricao": "Daaaaaaaaaaale",
+      "colunaId": 21,
+      "id": 13
+    },
+    {
+      "taskName": "Testing column",
+      "autor": "Thats right",
+      "descricao": "100%",
+      "colunaId": 2,
+      "id": 14
+>>>>>>> Stashed changes
     }
   ]
 }
